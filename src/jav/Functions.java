@@ -2,7 +2,7 @@ package jav;
 
 import java.lang.Math;
 
-public class Functions { // 게임 플레이시 필요한 각종 함수들 모음 클래스  
+public class Functions { // 게임 플레이시 필요한 각종 함수들 모음 클래스
 
 	public static void ZeroSet() {
 		for (int y = 0; y < 10; y++) {
@@ -44,7 +44,7 @@ public class Functions { // 게임 플레이시 필요한 각종 함수들 모�
 			}
 
 			DataBase.map[x][y] = 2; // 클릭처리
-			AllCheck(); 
+			AllCheck();
 			if (aroundMine > 0) { // 주변에 지뢰가 있으면
 				DataBase.map[x][y] = aroundMine + 10; // 겟수 데이터 기록
 				return; // 함수종료
@@ -128,5 +128,4 @@ public class Functions { // 게임 플레이시 필요한 각종 함수들 모�
 			}
 		}
 	}
-
 }
