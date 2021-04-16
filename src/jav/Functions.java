@@ -28,7 +28,7 @@ public class Functions { // 게임 플레이시 필요한 각종 함수들 모�
 	}
 
 	public static void Click(int x, int y) {
-
+		
 		if (DataBase.map[x][y] == 0) { // 지뢰를 클릭하지 않았다
 			int aroundMine = 0;
 			for (int cY = y - 1; cY < y + 2; cY++) {
@@ -44,6 +44,7 @@ public class Functions { // 게임 플레이시 필요한 각종 함수들 모�
 			}
 
 			DataBase.map[x][y] = 2; // 클릭처리
+			Ui.BtnNumSet(x, y, aroundMine);
 			AllCheck();
 			if (aroundMine > 0) { // 주변에 지뢰가 있으면
 				DataBase.map[x][y] = aroundMine + 10; // 겟수 데이터 기록
@@ -113,7 +114,7 @@ public class Functions { // 게임 플레이시 필요한 각종 함수들 모�
 			}
 		} else {
 			if (DataBase.map[x][y] == 1) { // 지뢰 클릭
-				// gameover
+				Ui.GameOver();
 			}
 		}
 	}
