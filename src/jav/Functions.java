@@ -28,7 +28,14 @@ public class Functions { // 게임 플레이시 필요한 각종 함수들 모�
 	}
 
 	public static void Click(int x, int y) {
-		
+		if (DataBase.clickType) {
+			if (DataBase.checked[x][y] == 1)
+				DataBase.checked[x][y]--;
+			else
+				DataBase.checked[x][y] = 1;
+			return;
+		}
+
 		if (DataBase.map[x][y] == 0) { // 지뢰를 클릭하지 않았다
 			int aroundMine = 0;
 			for (int cY = y - 1; cY < y + 2; cY++) {
@@ -114,7 +121,8 @@ public class Functions { // 게임 플레이시 필요한 각종 함수들 모�
 			}
 		} else {
 			if (DataBase.map[x][y] == 1) { // 지뢰 클릭
-				Ui.GameOver();
+				if (DataBase.checked[x][y] != 1)
+					Ui.GameOver();
 			}
 		}
 	}

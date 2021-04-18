@@ -27,33 +27,6 @@ public class Ui {
 		frame.setVisible(true);
 		frame.setResizable(false); // 사이즈 재조정 불가능
 		frame.setLocationRelativeTo(null); // 창이 가운데에 뜨도록 함
-		frame.addMouseListener(new MouseListener() { // 마우스 이벤트
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				System.out.println("ASD");
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) { // 클릭했을때
-				System.out.println("!!!!");
-				if (e.getButton() == MouseEvent.BUTTON3) {
-					// asdfasdf
-				}
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-			}
-		});
 		Print();
 		a.setBackground(null);
 		// frame.setVisible(true);
@@ -88,6 +61,17 @@ public class Ui {
 
 		}
 	};
+
+	public static void CheckSet(int x, int y) {
+		if (DataBase.checked[x][y] == 1) {
+			btn[x][y].setLabel("!");
+			btn[x][y].setForeground(Color.black);
+		} else {
+			btn[x][y].setLabel(x+":"+y);
+			btn[x][y].setForeground(Color.WHITE);
+			
+		}
+	}
 
 	public static void BtnNumSet(int x, int y, int val) {
 		if (val != 0)
